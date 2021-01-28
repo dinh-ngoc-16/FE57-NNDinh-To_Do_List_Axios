@@ -7,12 +7,19 @@ const taoBang = (arr) => {
   if (arr && arr.length > 0) {
     let content = "";
     arr.forEach(function (item) {
+      console.log(item.status);
+      let color = "";
+      if (item.status == "todo") {
+        color = "";
+      } else {
+        color = "text-success";
+      }
       content += `
         <li>
         <span>${item.textTask}</span>
         <div class="button">
-        <button class"btnXoa" style="border:none; cursor:pointer;" onclick="deleteTask(${item.id})"><i class="fa fa-trash-alt"></i></button>
-        <button style="border:none; cursor:pointer;" onclick="changeStatus(${item.id})"><i class="far fa-check-circle text-success"></i></button>
+        <button style="border:none; cursor:pointer;" onclick="deleteTask(${item.id})"><i class="fa fa-trash-alt"></i></button>
+        <button style="border:none; cursor:pointer;" onclick="changeStatus(${item.id})"><i class="fa fa-check-circle ${color}"></i></button>
         </div>
         </li>`;
     });
