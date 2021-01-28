@@ -11,8 +11,8 @@ const taoBang = (arr) => {
         <li>
         <span>${item.textTask}</span>
         <div class="button">
-        <button style="border:none" onclick="deleteTask(${item.id})"><i class="fa fa-trash-alt"></i></button>
-        <button style="border:none" onclick="changeStatus(${item.id})"><i class="far fa-check-circle"></i></button>
+        <button class"btnXoa" style="border:none; cursor:pointer;" onclick="deleteTask(${item.id})"><i class="fa fa-trash-alt"></i></button>
+        <button style="border:none; cursor:pointer;" onclick="changeStatus(${item.id})"><i class="far fa-check-circle text-success"></i></button>
         </div>
         </li>`;
     });
