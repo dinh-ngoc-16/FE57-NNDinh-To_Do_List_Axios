@@ -7,7 +7,6 @@ const taoBang = (arr) => {
   if (arr && arr.length > 0) {
     let content = "";
     arr.forEach(function (item) {
-      console.log(item.status);
       let color = "";
       if (item.status == "toDo") {
         color = "";
@@ -84,7 +83,6 @@ function deleteTask(id) {
 }
 
 window.changeStatus = changeStatus;
-console.log(window);
 function changeStatus(id, textTask, status) {
   utils.callAPI(`list/${id}`, "GET", "").then((result) => {
     const duLieu = result.data;
