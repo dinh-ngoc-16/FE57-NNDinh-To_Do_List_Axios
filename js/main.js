@@ -9,7 +9,7 @@ const taoBang = (arr) => {
     arr.forEach(function (item) {
       console.log(item.status);
       let color = "";
-      if (item.status == "todo") {
+      if (item.status == "toDo") {
         color = "";
       } else {
         color = "text-success";
@@ -57,7 +57,7 @@ layDanhSachTask();
 
 getEle("addItem").addEventListener("click", () => {
   const textTask = getEle("newTask").value;
-  const status = "todo";
+  const status = "toDo";
   const task = new Task("", textTask, status);
   utils
     .callAPI("list", "POST", task)
@@ -89,7 +89,7 @@ function changeStatus(id, textTask, status) {
   utils.callAPI(`list/${id}`, "GET", "").then((result) => {
     const duLieu = result.data;
     if (duLieu.status == "completed") {
-      const task = new Task(id, textTask, "todo");
+      const task = new Task(id, textTask, "toDo");
       utils
         .callAPI(`toDo/${id}`, "PUT", task)
         .then((result) => {
