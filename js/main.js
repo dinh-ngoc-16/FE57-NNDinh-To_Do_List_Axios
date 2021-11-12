@@ -73,7 +73,7 @@ getEle("addItem").addEventListener("click", () => {
 window.deleteTask = deleteTask;
 function deleteTask(id) {
   utils
-    .callAPI(`toDo/${id}`, `DELETE`, "")
+    .callAPI(`list/${id}`, `DELETE`, "")
     .then((result) => {
       alert("Xóa thành công");
       layDanhSachTask();
@@ -102,7 +102,7 @@ function changeStatus(id, textTask, status) {
     } else {
       const task = new Task(id, textTask, "completed");
       utils
-        .callAPI(`toDo/${id}`, "PUT", task)
+        .callAPI(`list/${id}`, "PUT", task)
         .then((result) => {
           alert("Change status");
           layDanhSachTask();
