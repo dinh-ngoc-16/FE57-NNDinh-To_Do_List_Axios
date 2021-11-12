@@ -91,7 +91,7 @@ function changeStatus(id, textTask, status) {
     if (duLieu.status == "completed") {
       const task = new Task(id, textTask, "toDo");
       utils
-        .callAPI(`toDo/${id}`, "PUT", task)
+        .callAPI(`list/${id}`, "PUT", task)
         .then((result) => {
           alert("Change status");
           layDanhSachTask();
