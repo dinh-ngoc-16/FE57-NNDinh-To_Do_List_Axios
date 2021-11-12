@@ -30,7 +30,7 @@ const taoBang = (arr) => {
 
 let layDanhSachTask = () => {
   utils
-    .callAPI("toDo", "GET", "")
+    .callAPI("list", "GET", "")
     .then((result) => {
       const arr = result.data;
       const compele = [];
@@ -60,7 +60,7 @@ getEle("addItem").addEventListener("click", () => {
   const status = "todo";
   const task = new Task("", textTask, status);
   utils
-    .callAPI("toDo", "POST", task)
+    .callAPI("list", "POST", task)
     .then((result) => {
       alert("Thêm thành công");
       layDanhSachTask();
@@ -86,7 +86,7 @@ function deleteTask(id) {
 window.changeStatus = changeStatus;
 console.log(window);
 function changeStatus(id, textTask, status) {
-  utils.callAPI(`toDo/${id}`, "GET", "").then((result) => {
+  utils.callAPI(`list/${id}`, "GET", "").then((result) => {
     const duLieu = result.data;
     if (duLieu.status == "completed") {
       const task = new Task(id, textTask, "todo");
